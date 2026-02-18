@@ -215,6 +215,18 @@ ggplot(sdr_data, aes(x = goal_12_score,
     - **Hint** to be able to tell which point is which country, you will have to add `label = country` in the aes function after you tell ggplot what you which scores you want on the x and y axis
      - **Hint** to use the ggplotly() function, you will need to use `library()` to load in the plotly package in the first code chunk in this R Markdown
 
+```{r}
+goal_3_goal_9_scatterplot = ggplot(sdr_data, aes(x = goal_3_score, 
+                     y = goal_9_score, label= country)) +
+  geom_point() +
+  stat_cor() +
+  geom_smooth() +
+  labs(x= "Goal 3 Score", y= "Goal 9 Score")
+
+ggplotly(goal_3_goal_9_scatterplot)
+```
+
+
   - in 4-6 sentences, come up with a hypotheses for the positive or negative correlation between the 2 goals
       
       - are there any points that don't follow the trend (outliers)
